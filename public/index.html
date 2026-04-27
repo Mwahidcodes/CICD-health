@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Backend Dashboard</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="badge">Jenkins + Docker + AWS EC2</p>
+        <h1>Dynamic Backend Dashboard</h1>
+        <p class="subtitle">
+          A beautiful Express.js app with live API data, task management,
+          deployment stats and health monitoring.
+        </p>
+
+        <div class="actions">
+          <a href="#tasks" class="btn primary">Manage Tasks</a>
+          <a href="/api/health" target="_blank" class="btn secondary">Check API Health</a>
+        </div>
+      </div>
+
+      <div class="glass-card server-card">
+        <div class="pulse"></div>
+        <h2>Server Status</h2>
+        <p id="serverStatus">Checking...</p>
+        <small id="serverTime">Loading...</small>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span>Total Tasks</span>
+        <strong id="totalTasks">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Completed</span>
+        <strong id="completedTasks">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Pending</span>
+        <strong id="pendingTasks">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Deployment</span>
+        <strong>CI/CD</strong>
+      </div>
+    </section>
+
+    <section id="tasks" class="panel">
+      <div class="panel-header">
+        <div>
+          <p class="badge dark">Live CRUD API</p>
+          <h2>Project Tasks</h2>
+        </div>
+      </div>
+
+      <form id="taskForm" class="task-form">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Enter a new deployment task..."
+          required
+        />
+
+        <select id="priorityInput">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <button type="submit">Add Task</button>
+      </form>
+
+      <div id="taskList" class="task-list"></div>
+    </section>
+
+    <section class="api-panel">
+      <h2>Available API Endpoints</h2>
+
+      <div class="endpoint-list">
+        <code>GET /api/health</code>
+        <code>GET /api/stats</code>
+        <code>GET /api/tasks</code>
+        <code>POST /api/tasks</code>
+        <code>PATCH /api/tasks/:id/toggle</code>
+        <code>DELETE /api/tasks/:id</code>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

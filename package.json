@@ -1,0 +1,13 @@
+{
+  "name": "dynamic-backend-dashboard",
+  "version": "1.0.0",
+  "description": "Dynamic Express backend app with fancy UI for Jenkins Docker AWS deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3"
+  }
+}
